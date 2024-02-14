@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  security:
+    jwt:
+      secret: 88deeacc8f37aac01ceeee14d8c2a5976dd3e9405c4b41358428e6e6952c9e0e5b83589e22cec123d84ffb48
+  application:
+    name: library-application
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: libraly-db
+      username: admin
+      password: admin
+      authentication-database: admin
+      auto-index-creation: true
+      uri: mongodb://admin:admin@localhost/db?authSource=admin
+
+
+
