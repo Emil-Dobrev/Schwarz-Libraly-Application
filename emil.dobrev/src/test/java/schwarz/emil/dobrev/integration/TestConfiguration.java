@@ -1,8 +1,6 @@
 package schwarz.emil.dobrev.integration;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -30,14 +28,10 @@ public class TestConfiguration {
     }
 
     @BeforeAll
-    static void beforeAll() throws InterruptedException {
+    static void beforeAll()  {
         mongoDBContainer.start();
     }
 
-    @AfterAll
-    static void afterAll() {
-        mongoDBContainer.stop();
-    }
 
     protected    <T> String asJsonString(T object) throws JsonProcessingException {
         return objectMapper.writeValueAsString(object);
