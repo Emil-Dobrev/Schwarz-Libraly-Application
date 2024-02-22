@@ -21,7 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 public class AppConfig {
 
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
