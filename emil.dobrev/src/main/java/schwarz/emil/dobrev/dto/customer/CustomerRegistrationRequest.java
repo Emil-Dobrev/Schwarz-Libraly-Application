@@ -12,15 +12,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CustomerRegistrationRequest {
     @NotEmpty
-    String name;
+   private String name;
     @NotBlank
-    @Email(message = "Invalid email")
-    String email;
+    @Pattern(
+            regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+            message = "Invalid email"
+    )
+   private String email;
     @NotBlank
     @Size(min = 8, max = 30, message = "Password must be between 8 and 30 characters")
     @Pattern(
             regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$",
             message = "Password should include upperCase, lowerCase and number"
     )
-    String password;
+   private String password;
 }

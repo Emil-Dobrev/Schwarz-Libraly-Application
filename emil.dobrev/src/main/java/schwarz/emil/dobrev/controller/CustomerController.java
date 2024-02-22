@@ -40,6 +40,7 @@ public class CustomerController {
             @RequestBody UpdateCustomerRequest updateCustomerRequest,
             Authentication authentication
     ) {
+        log.info("Updating customer: {}", authentication.getName());
         return ResponseEntity.ok()
                 .body(
                         this.customerService.updateCustomer(
@@ -50,6 +51,7 @@ public class CustomerController {
 
     @DeleteMapping
     public ResponseEntity<HttpStatus> deleteCustomer(Authentication authentication) {
+        log.info("Deleting customer: {}", authentication.getName());
         this.customerService.deleteCustomer(authentication.getName());
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
